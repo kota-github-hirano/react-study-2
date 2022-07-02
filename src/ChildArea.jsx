@@ -1,10 +1,14 @@
+import { memo } from "react";
+
 const style = {
   width: "100%",
   height: "200px",
   backgroundColor: "khaki"
 };
 
-export const ChildArea = (props) => {
+//memoで囲むことでpropsが変更されない限り再レンダリングされない様になる
+//肥大化が予測されるコンポーネントはmomoで囲む
+export const ChildArea = memo((props) => {
   const { open } = props;
   console.log("ChildAreaがレンダリングされた！！");
   const data = [...Array(2000).keys()];
@@ -23,4 +27,4 @@ export const ChildArea = (props) => {
       ) : null}
     </>
   );
-};
+});
