@@ -9,7 +9,7 @@ const style = {
 //memoで囲むことでpropsが変更されない限り再レンダリングされない様になる
 //肥大化が予測されるコンポーネントはmomoで囲む
 export const ChildArea = memo((props) => {
-  const { open } = props;
+  const { open ,onClickClose} = props;
   console.log("ChildAreaがレンダリングされた！！");
   const data = [...Array(2000).keys()];
   data.forEach(() => {
@@ -23,6 +23,7 @@ export const ChildArea = memo((props) => {
       {open ? (
         <div style={style}>
           <p>子コンポーネント</p>
+          <button onClick={onClickClose}>閉じる</button>
         </div>
       ) : null}
     </>
